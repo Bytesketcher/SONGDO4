@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -6,8 +6,8 @@
 <title>힘찬이의 송도탐험 게임 — 송도4동마을도슨트 교육자료</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#e8f5ee;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;padding:16px}
-#app{width:760px;max-width:100%;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.14)}
+body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#e8f5ee;display:flex;justify-content:center;align-items:flex-start;min-height:100vh;padding:0}
+#app{width:760px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.14);transform-origin:top center}
 
 /* HUD */
 #hud{display:flex;align-items:center;padding:8px 16px;background:#1D9E75;gap:10px;flex-wrap:wrap}
@@ -184,7 +184,7 @@ body{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;background:#e8
 
    
     <!-- 힘찬이 캐릭터 on map -->
-    <div id="himchan-map" style="left:49%;top:50%" onclick="showHimchanIntro()">
+    <div id="himchan-map" style="left:80%;top:20%" onclick="showHimchanIntro()">
       <div id="himchan-map-svg"></div>
       <div class="himchan-label">힘찬이</div>
     </div>
@@ -561,6 +561,15 @@ function resetGame(){
 injectHimchan();
 initStamps();
 renderLocs();
-</script>
+function scaleApp(){
+  var app=document.getElementById('app');
+  var vw=window.innerWidth;
+  var scale=vw<780?vw/760:1;
+  app.style.transform='scale('+scale+')';
+  app.style.marginBottom=((760*scale)-760)+'px';
+}
+scaleApp();
+window.addEventListener('resize',scaleApp);</script>
 </body>
 </html>
+
